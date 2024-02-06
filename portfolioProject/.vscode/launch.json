@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "ng serve",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
+        "args": ["serve"],
+        "stopOnEntry": false,
+        "cwd": "${workspaceFolder}",
+        "preLaunchTask": null,
+        "runtimeExecutable": null,
+        "runtimeArgs": ["--nolazy"],
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "sourceMaps": false,
+        "outDir": null,
+        "protocol": "inspector",
+        "restart": true,
+        "stopOnEntry": false,
+        "restart": true,
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "serverReadyAction": {
+          "action": "openExternally",
+          "pattern": "\\bwebpack: Compiled successfully\\b"
+        },
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng"
+        },
+        "postDebugTask": null
+      },
+      {
+        "name": "ng serve - Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:4200",
+        "webRoot": "${workspaceFolder}"
+      }
+    ]
+  }

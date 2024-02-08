@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SchedulerComponent } from '../../../components/scheduler/scheduler/scheduler.component';}
+import { SchedulerComponent } from '../../../components/scheduler/scheduler/scheduler.component';
 
 @Component({
   selector: 'app-landing-view',

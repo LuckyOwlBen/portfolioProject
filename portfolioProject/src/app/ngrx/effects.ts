@@ -2,9 +2,8 @@ import { Injectable } from "@angular/core";
 import { addCustomerCall, addCustomerFailure, addCustomerSuccess } from "./actions";
 import { CustomerService } from "../api-services/customer-service";
 import { ActionsSubject } from "@ngrx/store";
-import { Observable, catchError, map, mergeMap, of } from "rxjs";
-import { Actions, ofType, createEffect } from '@ngrx/effects';
-import { AddCustomerRequest } from "../http_models/requests/add-customer-request";
+import { catchError, map, mergeMap, of } from "rxjs";
+import { ofType, createEffect } from '@ngrx/effects';
 
 @Injectable()
 export class CutomerEffects {

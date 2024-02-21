@@ -1,12 +1,16 @@
 import { Store } from "@ngrx/store";
-import { AppState } from "./store";
+import { AppState } from "./state";
 import { AddCustomerRequest } from "../http_models/requests/add-customer-request";
 import { addCustomerCall } from "./actions";
+import { Injectable } from "@angular/core";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class ActionDispatcher {
-    constructor(private store: Store<AppState>) {}
+    constructor(private store: Store<{appState: AppState}>) {}
 
-    addCustomer(addCustomerRequest: AddCustomerRequest) {
+    public addCustomer(addCustomerRequest: AddCustomerRequest) {
         this.store.dispatch(addCustomerCall({addCustomerRequest}));
     }
 }

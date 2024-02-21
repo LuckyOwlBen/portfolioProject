@@ -2,7 +2,7 @@
     <div>
         <label for="textInput">Enter Text:</label>
         <input type="text" id="textInput" formControlName="firstNameInput" />
-        <div *ngIf="!isValid()" class="error">
+        <div *ngIf="isInvalid()" class="error">
             First name is required.
         </div>
     </div>

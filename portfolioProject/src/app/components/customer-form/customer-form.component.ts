@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActionDispatcher } from '../../ngrx/action.dispatcher';
 import { AddCustomerRequest } from '../../http_models/requests/add-customer-request';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ export class CustomerFormComponent implements OnInit {
 
   customerForm: FormGroup = this.formBuilder.group({
     firstNameInput: ['', Validators.required],
-    lastNameInput: ['', Validators.required],
+    //lastNameInput: ['', Validators.required],
   });
   
   constructor(
@@ -40,12 +40,13 @@ export class CustomerFormComponent implements OnInit {
     let request = {} as AddCustomerRequest;
     request.firstName = '';
     request.lastName = '';
-    request.jobId = '';
+    request.emailId = '';
     return request;
   }
 
-  isValid(): boolean {
-    return this.customerForm.get('firstNameInput')?.errors
+  isInvalid(): boolean {
+    return this.customerForm.get('firstNameInput')?.dirty 
+    && this.customerForm.get('firstNameInput')?.errors
     && this.customerForm.get('firstNameInput')?.errors?.['required']
   }
 }

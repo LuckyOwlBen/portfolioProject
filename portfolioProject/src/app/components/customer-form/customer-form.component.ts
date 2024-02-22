@@ -44,8 +44,8 @@ export class CustomerFormComponent implements OnInit {
   generateAddCustomerRequest(): void {
     let request = {} as AddCustomerRequest;
     request.firstName = this.customerForm.get('firstNameInput')?.value;
-    request.lastName = '';
-    request.emailId = '';
+    request.lastName = this.customerForm.get('lastNameInput')?.value;
+    request.emailId = this.customerForm.get('emailAddressInput')?.value;
     this.addCustomerEvent.emit(request);
   }
 

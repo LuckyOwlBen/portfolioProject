@@ -1,33 +1,31 @@
 import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
-import { AddCustomerRequest } from "../http_models/requests/add-customer-request";
-import { CustomerService } from "../api-services/customer-service";
 
-type AppState = {
+interface AppState {
     customer: Customer
 };
 
-export type Customer = {
+export interface Customer {
     firstName: String;
     lastName: String;
     emailId: String;
-    jobId: String;
-}
+    //jobId: String;
+};
 
-const initialState: AppState = {
+const initialState:
+AppState = {
     customer: {
         firstName: '',
         lastName: '',
         emailId: '',
-        jobId: '',
-    }
-}
+    },
+};
 
 export const AppStore = signalStore(
     { providedIn: 'root' },
     withState(initialState),
-    withMethods((store) =>({
-        updateCustomer(newCustomer: Customer) {
-            patchState(store, {customer: newCustomer});
-        }
+    withMethods((store) => ({
+       updateCustomer(customer: Customer) {
+            patchState(store, () =>({customer: customer}));
+       }
     }))
 );

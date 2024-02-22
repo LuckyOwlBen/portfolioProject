@@ -1,21 +1,21 @@
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
     <div>
-        <label for="textInput">Enter First Name:</label>
-        <input type="text" id="textInput" formControlName="firstNameInput" />
+        <label for="firstNameInput">Enter First Name:</label>
+        <input type="text" id="firstNameInput" formControlName="firstNameInput" />
         <div *ngIf="isInvalid()" class="error">
             First name is required.
         </div>
     </div>
     <div>
-        <label for="textInput">Enter Last Name:</label>
-        <input type="text" id="textInput" formControlName="lastNameInput" />
+        <label for="lastNameInput">Enter Last Name:</label>
+        <input type="text" id="lastNameInput" formControlName="lastNameInput" />
         <div *ngIf="isInvalid()" class="error">
             Last name is required.
         </div>
     </div>
     <div>
-        <label for="textInput">Enter email address:</label>
-        <input type="text" id="textInput" formControlName="emailAddressInput" />
+        <label for="emailIdInput">Enter email address:</label>
+        <input type="text" id="emailIdInput" formControlName="emailAddressInput" />
         <div *ngIf="isInvalid()" class="error">
             Email address is required.
         </div>

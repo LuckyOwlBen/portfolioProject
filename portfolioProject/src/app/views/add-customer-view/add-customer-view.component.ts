@@ -34,9 +34,10 @@ export class AddCustomerViewComponent {
             firstName: addCustomerRequest.firstName,
             lastName: addCustomerRequest.lastName,
             emailId: addCustomerRequest.emailId,
-            jobId: addCustomerResponse.jobId,
+            //jobId: addCustomerResponse.jobId,
           }
           this.store.updateCustomer(customer);
+          console.log(this.store.customer().firstName);
       });
   }
 }

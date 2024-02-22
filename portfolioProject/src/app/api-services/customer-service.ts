@@ -8,7 +8,7 @@ import { AddCustomerRequest } from "../http_models/requests/add-customer-request
     providedIn: 'root',
 })
 export class CustomerService {
-    private apiUrl = 'https://localhost:8080/addCustomer'
+    private apiUrl = 'http://localhost:8080/addCustomer'
     constructor(private http: HttpClient) {};
 
     addCustomer(addCustomerRequest: AddCustomerRequest): Observable<AddCustomerResponse> {

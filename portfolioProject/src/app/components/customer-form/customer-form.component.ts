@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AddCustomerRequest } from '../../http_models/requests/add-customer-request';
 import { CommonModule } from '@angular/common';
-import { CustomerService } from '../../api-services/customer-service/customer-service';
 
 @Component({
   selector: 'app-customer-form',
@@ -28,7 +27,6 @@ export class CustomerFormComponent implements OnInit {
   
   constructor(
     private formBuilder: FormBuilder,
-    private customerService: CustomerService,
   ) { }
 
   ngOnInit() {

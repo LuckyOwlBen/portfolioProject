@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CustomerFormComponent } from '../../components/customer-form/customer-form.component';
 import { AddCustomerRequest } from '../../http_models/requests/add-customer-request';
-import { CustomerService } from '../../api-services/customer-service/customer-service';
+import { CustomerService } from '../../api-services/api-service/api.service';
 import { AddCustomerResponse } from '../../http_models/responses/add-customer-response';
 import { AppStore, Authentication, Customer } from '../../ngrx/app.store';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-customer-view',
@@ -16,6 +16,7 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
   providers: [
     HttpClient,
     Router,
+    CustomerService,
   ],
   templateUrl: './add-customer-view.component.html',
   styleUrl: './add-customer-view.component.scss'
@@ -31,7 +32,7 @@ export class AddCustomerViewComponent {
 
   addCustomer(addCustomerRequest: AddCustomerRequest) {
     this.customerService
-      .addCustomer(addCustomerRequest)
+      .callApi(addCustomerRequest, null)
       .pipe()
       .subscribe({
         next: (addCustomerResponse: AddCustomerResponse) => {

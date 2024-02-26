@@ -1,3 +1,3 @@
-export interface AppointmentResponse {
+export interface ScheduleAppointmentResponse {
     success: boolean
 }

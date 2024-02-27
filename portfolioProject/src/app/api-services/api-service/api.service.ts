@@ -15,20 +15,19 @@ export abstract class CallApi <Request, Response, Headers extends { [key: string
 
   abstract endpoint: string;
 
-  httpHeaders = new HttpHeaders();
-
   constructor(protected http: HttpClient) {};
 
   callApi(apiRequest: Request, headers: Headers): Observable<Response> {
+    let httpHeaders = new HttpHeaders();
     if(headers) {
       const headerMap: {[key: string]: any} = headers;
       for(let key in headerMap) {
-        this.httpHeaders.set(key, headerMap[key]);
+        httpHeaders = httpHeaders.set(key, headerMap[key]);
       }
     }
     return apiRequest 
-      ? this.http.post<Response>(apiUrl + this.endpoint, apiRequest, {headers: this.httpHeaders})
-      : this.http.get<Response>(apiUrl + this.endpoint, {headers: this.httpHeaders});
+      ? this.http.post<Response>(apiUrl + this.endpoint, apiRequest, {headers: httpHeaders})
+      : this.http.get<Response>(apiUrl + this.endpoint, {headers: httpHeaders});
   }
 }
 

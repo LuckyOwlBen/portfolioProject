@@ -1,18 +1,14 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
+import { inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppStore } from '../../ngrx/app.store';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthInterceptorService implements HttpInterceptor {
-  readonly store = inject(AppStore);
-  constructor() { }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const authorization = this.store.authentication().jwt.toString();
+  export function AuthInterceptor(req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> {
+    const store = inject(AppStore);
+    const authorization = store.authentication().jwt.toString();
+    console.log(authorization);
     return authorization
-      ? next.handle(req.clone({headers: req.headers.set('Authorization', authorization)}))
-      : next.handle(req)
+      ? next(req.clone({headers: req.headers.set('Authorization', authorization)}))
+      : next(req)
   }
-}
+

@@ -1,54 +1,46 @@
 <div>
-  {{calendarEntry.availabilityMap.get(1)}}
-  {{calendarEntry.availabilityMap.get(2)}}
-  {{calendarEntry.availabilityMap.get(3)}}
-  {{calendarEntry.availabilityMap.get(4)}}
+  {{checkAvailability(1)}}
+  {{checkAvailability(2)}}
+  {{checkAvailability(3)}}
+  {{checkAvailability(4)}}
 </div>
 
-<mat-expansion-panel hideToggle="checkAvailability(1)">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Morning
-    </mat-panel-title>
-    <mat-panel-description>
-      Between 9 and 11 AM
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
-</mat-expansion-panel>
+<mat-card [class.disabled-mat-card]="checkAvailability(1)">
+  <mat-card-header>
+    <mat-card-title>Morning</mat-card-title>
+    <mat-card-subtitle>Between 9 and 11 AM</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button [disabled]="checkAvailability(1)" (click)="bookAppointment()"> Book Now!</button>
+  </mat-card-actions>
+</mat-card>
 
-<mat-expansion-panel hideToggle="checkAvailability(2)">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Mid Day
-    </mat-panel-title>
-    <mat-panel-description>
-      Between 11 and 1 PM
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
-</mat-expansion-panel>
+<mat-card [class.disabled-mat-card]="checkAvailability(2)">
+  <mat-card-header>
+    <mat-card-title>Mid Day</mat-card-title>
+    <mat-card-subtitle>Between 11 and 1 PM</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button [disabled]="checkAvailability(2)" (click)="bookAppointment()"> Book Now!</button>
+  </mat-card-actions>
+</mat-card>
 
-<mat-expansion-panel hideToggle="checkAvailability(3)">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      After Noon
-    </mat-panel-title>
-    <mat-panel-description>
-      Between 1 and 3 PM
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
-</mat-expansion-panel>
+<mat-card [class.disabled-mat-card]="checkAvailability(3)">
+  <mat-card-header>
+    <mat-card-title>After Noon</mat-card-title>
+    <mat-card-subtitle>Between 1 and 3 PM</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button [disabled]="checkAvailability(3)" (click)="bookAppointment()"> Book Now!</button>
+  </mat-card-actions>
+</mat-card>
 
-<mat-expansion-panel hideToggle="checkAvailability(4)">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Evening
-    </mat-panel-title>
-    <mat-panel-description>
-      Between 3 and 5 PM
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
-</mat-expansion-panel>
+<mat-card [class.disabled-mat-card]="checkAvailability(4)">
+  <mat-card-header>
+    <mat-card-title>Evening</mat-card-title>
+    <mat-card-subtitle>Between 3 and 5 PM</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button [disabled]="checkAvailability(4)" (click)="bookAppointment()"> Book Now!</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,9 @@
+<input matInput [matDatepicker]="datePicker" (dateChange)="selectDate($event)">
+<mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+<mat-datepicker #datePicker></mat-datepicker>
+<div *ngIf="currentAvailabilityMap">
+    {{currentAvailabilityMap.get(1)}}
+    {{currentAvailabilityMap.get(2)}}
+    {{currentAvailabilityMap.get(3)}}
+    {{currentAvailabilityMap.get(4)}}
+</div>

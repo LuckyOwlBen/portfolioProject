@@ -15,7 +15,7 @@
     <mat-card-subtitle>Between 9 and 11 AM</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
-    <button mat-raised-button [disabled]="checkAvailability(1)" (click)="bookAppointment()"> Book Now!</button>
+    <button mat-raised-button [disabled]="checkAvailability(1)" (click)="bookAppointment(1)"> Book Now!</button>
   </mat-card-actions>
 </mat-card>
 
@@ -25,7 +25,7 @@
     <mat-card-subtitle>Between 11 and 1 PM</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
-    <button mat-raised-button [disabled]="checkAvailability(2)" (click)="bookAppointment()"> Book Now!</button>
+    <button mat-raised-button [disabled]="checkAvailability(2)" (click)="bookAppointment(2)"> Book Now!</button>
   </mat-card-actions>
 </mat-card>
 
@@ -35,7 +35,7 @@
     <mat-card-subtitle>Between 1 and 3 PM</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
-    <button mat-raised-button [disabled]="checkAvailability(3)" (click)="bookAppointment()"> Book Now!</button>
+    <button mat-raised-button [disabled]="checkAvailability(3)" (click)="bookAppointment(3)"> Book Now!</button>
   </mat-card-actions>
 </mat-card>
 
@@ -45,6 +45,6 @@
     <mat-card-subtitle>Between 3 and 5 PM</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
-    <button mat-raised-button [disabled]="checkAvailability(4)" (click)="bookAppointment()"> Book Now!</button>
+    <button mat-raised-button [disabled]="checkAvailability(4)" (click)="bookAppointment(4)"> Book Now!</button>
   </mat-card-actions>
 </mat-card>

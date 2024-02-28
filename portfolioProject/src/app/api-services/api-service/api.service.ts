@@ -5,6 +5,8 @@ import { AddCustomerRequest } from '../../http_models/requests/add-customer-requ
 import { AddCustomerResponse } from '../../http_models/responses/add-customer-response';
 import { AvailabilityRequest } from '../../http_models/requests/availability-request';
 import { AvailabilityResponse } from '../../http_models/responses/availability-response';
+import { ScheduleAppointmentRequest } from '../../http_models/requests/appointment-request';
+import { ScheduleAppointmentResponse } from '../../http_models/responses/appointment-response';
 
 const apiUrl = 'http://localhost:8080';
 
@@ -43,5 +45,11 @@ export class CustomerService extends CallApi<AddCustomerRequest, AddCustomerResp
 })
 export class AvailabilityService extends CallApi<null, AvailabilityResponse, AvailabilityRequest> {
   endpoint = '/checkAvailability'
+}
 
+@Injectable({
+  providedIn: 'root'
+})
+export class AppointmentService extends CallApi<ScheduleAppointmentRequest, ScheduleAppointmentResponse, null> {
+  endpoint = '/scheduleAppointment'
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
 import { CalendarEntry } from '../../../http_models/responses/availability-response';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -26,7 +26,8 @@ import { NgIf } from '@angular/common';
 export class CalendarComponent {
 
   selectedDate: Date = new Date();
-  currentAvailabilityMap!: Map<number, number>;
+  @Output()
+  availabilityEmitter: EventEmitter<CalendarEntry | null> = new EventEmitter();
   @Input({required: true})
   calendarData: Map<String, CalendarEntry> = new Map<String, CalendarEntry>();
   calendarForm: FormGroup = this.formBuilder.group({
@@ -40,12 +41,10 @@ export class CalendarComponent {
     const calendarEntry = selectedDate
       ? this.calendarData.get(format(new Date(selectedDate), "yyyy-MM-dd"))
       : null;
-    if(calendarEntry) {
-      this.currentAvailabilityMap =
-        new Map<number, number>(Object.entries(calendarEntry.availabilityMap).map(([k, v]) => [+k, +v]));
-    }
-    console.log(this.currentAvailabilityMap.get(0));
-    
+      this.emitCurrentAvailibilityMap(calendarEntry);
   }
-  
+
+  emitCurrentAvailibilityMap(availabilityMap: CalendarEntry | null | undefined): void {
+    this.availabilityEmitter.emit(availabilityMap);
+  }
 }

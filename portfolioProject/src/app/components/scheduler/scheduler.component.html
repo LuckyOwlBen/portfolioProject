@@ -1,7 +1,54 @@
-<mat-form-field>
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+<div>
+  {{calendarEntry.availabilityMap.get(1)}}
+  {{calendarEntry.availabilityMap.get(2)}}
+  {{calendarEntry.availabilityMap.get(3)}}
+  {{calendarEntry.availabilityMap.get(4)}}
+</div>
+
+<mat-expansion-panel hideToggle="checkAvailability(1)">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Morning
+    </mat-panel-title>
+    <mat-panel-description>
+      Between 9 and 11 AM
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
+</mat-expansion-panel>
+
+<mat-expansion-panel hideToggle="checkAvailability(2)">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Mid Day
+    </mat-panel-title>
+    <mat-panel-description>
+      Between 11 and 1 PM
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
+</mat-expansion-panel>
+
+<mat-expansion-panel hideToggle="checkAvailability(3)">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      After Noon
+    </mat-panel-title>
+    <mat-panel-description>
+      Between 1 and 3 PM
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
+</mat-expansion-panel>
+
+<mat-expansion-panel hideToggle="checkAvailability(4)">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Evening
+    </mat-panel-title>
+    <mat-panel-description>
+      Between 3 and 5 PM
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <button Mat-Button (click)="bookAppointment()"> Book Now!</button>
+</mat-expansion-panel>

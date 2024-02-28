@@ -39,12 +39,23 @@ export class CalendarComponent {
   selectDate($event: MatDatepickerInputEvent<Date>) {
     const selectedDate = $event.value;
     const calendarEntry = selectedDate
-      ? this.calendarData.get(format(new Date(selectedDate), "yyyy-MM-dd"))
+      ? this.retrieveOrGenerateCalendarEntry(selectedDate)
       : null;
       this.emitCurrentAvailibilityMap(calendarEntry);
   }
 
-  emitCurrentAvailibilityMap(availabilityMap: CalendarEntry | null | undefined): void {
-    this.availabilityEmitter.emit(availabilityMap);
+  retrieveOrGenerateCalendarEntry(selectedDate: Date): CalendarEntry {
+    let calendarEntry = this.calendarData.get(format(new Date(selectedDate), "yyyy-MM-dd"));
+    if(calendarEntry == undefined) {
+      calendarEntry = {
+        date: format(new Date(selectedDate), "yyyy-MM-dd"),
+        availabilityMap: new Map().set(1, 0).set(2, 0).set(3,0).set(4,0),
+      } as CalendarEntry
+    }
+    return calendarEntry;
+  }
+
+  emitCurrentAvailibilityMap(calendarEntry: CalendarEntry | null | undefined): void {
+    this.availabilityEmitter.emit(calendarEntry);
   }
 }

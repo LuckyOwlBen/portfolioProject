@@ -15,7 +15,7 @@ import { MatCardModule } from '@angular/material/card'
   styleUrl: './scheduler.component.scss'
 })
 export class SchedulerComponent {
-  @Input()
+  @Input({required: true})
   calendarEntry!: CalendarEntry;
 
   checkAvailability(slot: number): boolean {

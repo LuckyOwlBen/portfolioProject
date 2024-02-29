@@ -54,7 +54,7 @@ export class ScheduleAppointmentViewComponent implements OnInit {
   populateSelectedDate(selectedDayAvailability: Date | null): void {
     selectedDayAvailability
       ? this.processSelectedDate(selectedDayAvailability)
-      : null;
+      : this.calendarEntry = null;
   }
 
   bookAppointment($event: ScheduleAppointmentRequest) {

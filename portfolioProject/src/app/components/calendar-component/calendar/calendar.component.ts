@@ -26,6 +26,8 @@ export class CalendarComponent {
   selectedDate: Date = new Date();
   @Output()
   dateEmitter: EventEmitter<Date | null> = new EventEmitter();
+  @Input({required: true})
+  minDate!: Date;
 
   calendarForm: FormGroup = this.formBuilder.group({
     dateInput: ['', Validators.required],
@@ -37,9 +39,8 @@ export class CalendarComponent {
       this.emitSelectedDate($event.value);
   }
 
-  
-
   emitSelectedDate(selectedDate: Date | null | undefined): void {
     this.dateEmitter.emit(selectedDate);
   }
+
 }

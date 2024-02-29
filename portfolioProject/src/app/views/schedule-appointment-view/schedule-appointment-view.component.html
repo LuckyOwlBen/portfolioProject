@@ -1,2 +1,2 @@
-<app-calendar [calendarData]="availabilityMap" (availabilityEmitter)="populateSelectedAvailabilityMap($event)"></app-calendar>
+<app-calendar (dateEmitter)="populateSelectedDate($event)"></app-calendar>
 <app-scheduler *ngIf="calendarEntry != null" [calendarEntry]="calendarEntry" (appointmentRequest)="bookAppointment($event)"></app-scheduler>

@@ -1,1 +1,13 @@
-<router-outlet />
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="app-header">
+        I am a toolbar
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container [hasBackdrop]="false">
+    <mat-sidenav-content>
+        <router-outlet />
+    </mat-sidenav-content>
+    <mat-sidenav class="app-sidenav" opened [mode]="'push'">
+        I'm the side nav
+    </mat-sidenav>
+</mat-sidenav-container>

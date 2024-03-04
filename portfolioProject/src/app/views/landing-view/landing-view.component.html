@@ -1,4 +1,18 @@
-<div class="grid-container">
-    <p class="grid-item">Hello I am a landing page. Please know about my company from me.</p>
-    <button class="grid-item" mat-raised-button (click)="submit()">Book an appointment Today!?</button>
+<img class="background-image" src="assets/images/TwoThumbsUpGuy.jpeg">
+<div class="landing-view-container">
+    <mat-card class="landing-view-card">
+        <mat-card-header>
+            <mat-card-title class="welcome-text">
+                Demo Application for your COMPANY!!
+            </mat-card-title>
+            <mat-card-subtitle class="welcome-subtext">
+                Your tagline here!!
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button class="welcome-appointment-button" mat-raised-button (click)="submit()">
+                Book an appointment Today!?
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>

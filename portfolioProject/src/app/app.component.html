@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="app-toolbar">
     <mat-toolbar-row class="app-header">
-        I am a toolbar
+        Angular Project Showcase
     </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container [hasBackdrop]="false">
-    <mat-sidenav-content>
+<mat-sidenav-container [hasBackdrop]="false" class="app-sidenav-conatiner">
+    <mat-sidenav-content class="app-sidenav-content">
         <router-outlet />
     </mat-sidenav-content>
     <mat-sidenav class="app-sidenav" opened [mode]="'push'">
-        I'm the side nav
+       <app-sidenav-view></app-sidenav-view>
     </mat-sidenav>
 </mat-sidenav-container>

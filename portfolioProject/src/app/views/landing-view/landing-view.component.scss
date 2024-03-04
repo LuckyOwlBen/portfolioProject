@@ -1,13 +1,51 @@
-:host {
+.welcome-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    text-align: center;
+    flex-wrap: wrap;
+    color: white;
 }
 
-.welcome-text {
-    text-wrap: normal;
-    width: 80%;
+.welcome-subtext {
     display: flex;
     justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.welcome-appointment-button {
+
+}
+
+.landing-view-card {
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 24%;
+    width: 24%;
+    background-color: rgb(188, 112, 231);
+    top: 60%;
+}
+
+.landing-view-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.background-image {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    opacity: .5;
 }

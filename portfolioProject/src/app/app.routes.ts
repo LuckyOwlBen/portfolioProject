@@ -12,5 +12,5 @@ export const routes: Routes = [
     { path: 'appointments', component: ScheduleAppointmentViewComponent },
     { path: 'thanks', component: ThankYouViewComponent },
     { path: 'error', component: ErrorViewComponent },
-    { path: '**', pathMatch: 'full',  component: ErrorViewComponent },
+    { path: '**', redirectTo:'/error', pathMatch: 'full'},
 ];

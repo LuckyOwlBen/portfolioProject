@@ -113,9 +113,8 @@ export class ScheduleAppointmentViewComponent implements OnInit {
             this.retrieveOrGenerateCalendarEntry(this.selectedDate);
           }
         },
-        error: (error: any) => {
-          this.router.navigate(['/error'])
-          console.log(error);
+        error: () => {
+          //this.router.navigate(['/error'], { relativeTo: this.route });
         },
       }
     );

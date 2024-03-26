@@ -38,9 +38,7 @@ export class AddCustomerViewComponent {
         next: (addCustomerResponse: AddCustomerResponse) => {
           this.store.updateCustomer(this.generateCustomerObjectFromRequest(addCustomerRequest));
           this.store.updateAuthentication(this.generateAuthenticationObjectFromResponse(addCustomerResponse));
-          addCustomerResponse.success
-            ? this.router.navigate(['/appointments'], { relativeTo: this.route })
-            : this.router.navigate(['/error'], { relativeTo: this.route })
+          this.router.navigate(['/appointments'], { relativeTo: this.route })
         },
         error: () => { this.router.navigate(['/error'], { relativeTo: this.route }) }
       },

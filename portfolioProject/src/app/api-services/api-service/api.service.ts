@@ -8,7 +8,7 @@ import { AvailabilityResponse } from '../../http_models/responses/availability-r
 import { ScheduleAppointmentRequest } from '../../http_models/requests/appointment-request';
 import { ScheduleAppointmentResponse } from '../../http_models/responses/appointment-response';
 
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'http://localhost:5000';
 
 @Injectable({
   providedIn: 'root'

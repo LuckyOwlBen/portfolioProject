@@ -1,24 +1,24 @@
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="firstNameInput">Enter First Name:</label>
-        <input type="text" id="firstNameInput" formControlName="firstNameInput" />
-        <div *ngIf="isInvalid()" class="error">
+    <mat-form-field>
+        <mat-label for="firstNameInput">Enter First Name:</mat-label>
+        <input matInput type="text" id="firstNameInput" formControlName="firstNameInput" />
+        <mat-error *ngIf="isInvalid('firstNameInput')" class="error">
             First name is required.
-        </div>
-    </div>
-    <div>
-        <label for="lastNameInput">Enter Last Name:</label>
-        <input type="text" id="lastNameInput" formControlName="lastNameInput" />
-        <div *ngIf="isInvalid()" class="error">
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="lastNameInput">Enter Last Name:</mat-label>
+        <input matInput type="text" id="lastNameInput" formControlName="lastNameInput" />
+        <mat-error *ngIf="isInvalid('lastNameInput')" class="error">
             Last name is required.
-        </div>
-    </div>
-    <div>
-        <label for="emailIdInput">Enter email address:</label>
-        <input type="text" id="emailIdInput" formControlName="emailAddressInput" />
-        <div *ngIf="isInvalid()" class="error">
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="emailIdInput">Enter email address:</mat-label>
+        <input matInput type="text" id="emailIdInput" formControlName="emailAddressInput" />
+        <mat-error *ngIf="isInvalid('emailAddressInput')" class="error">
             Email address is required.
-        </div>
-    </div>
-    <button type="submit" [disabled]="customerForm.invalid">Submit</button>
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="customerForm.invalid">Submit</button>
 </form>

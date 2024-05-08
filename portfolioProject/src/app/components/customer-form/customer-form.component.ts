@@ -2,6 +2,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AddCustomerRequest } from '../../http_models/requests/add-customer-request';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-customer-form',
@@ -9,6 +12,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   templateUrl: './customer-form.component.html',
   styleUrl: './customer-form.component.scss'
@@ -47,9 +53,9 @@ export class CustomerFormComponent implements OnInit {
     this.addCustomerEvent.emit(request);
   }
 
-  isInvalid(): boolean {
-    return this.customerForm.get('firstNameInput')?.dirty 
-    && this.customerForm.get('firstNameInput')?.errors
-    && this.customerForm.get('firstNameInput')?.errors?.['required']
+  isInvalid(fieldName: string): boolean {
+    return this.customerForm.get(fieldName)?.dirty 
+    && this.customerForm.get(fieldName)?.errors
+    && this.customerForm.get(fieldName)?.errors?.['required']
   }
 }

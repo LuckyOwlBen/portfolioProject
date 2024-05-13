@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-add-customer-view',
   standalone: true,
   imports: [
-    CustomerFormComponent
+    CustomerFormComponent,
   ],
   providers: [
     HttpClient,

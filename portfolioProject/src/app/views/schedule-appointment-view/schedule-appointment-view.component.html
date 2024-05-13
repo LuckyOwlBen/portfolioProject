@@ -1,2 +1,8 @@
-<app-calendar (dateEmitter)="populateSelectedDate($event)" [minDate]="firstAvailableDate"></app-calendar>
-<app-scheduler *ngIf="calendarEntry != null" [calendarEntry]="calendarEntry" (appointmentRequest)="bookAppointment($event)"></app-scheduler>
+<div class="scheudle-appointment-container">
+    <div class="date-selector">
+        <app-calendar (dateEmitter)="populateSelectedDate($event)" [minDate]="firstAvailableDate"></app-calendar>
+    </div>
+    <div class="time-selector">
+        <app-scheduler *ngIf="calendarEntry != null" [calendarEntry]="calendarEntry" (appointmentRequest)="bookAppointment($event)"></app-scheduler>
+    </div>
+</div>

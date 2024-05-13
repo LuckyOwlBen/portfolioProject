@@ -3,14 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     width: 100%;
     background-color: #e3d7f7;
 }
 
 .app-sidenav  {
-    width: 15%;
-    top: 15%; /* Adjust the value based on the height of your .app-toolbar */
+    top: 15%;
     position: fixed;
     background-color: #c1a4f5;
 }

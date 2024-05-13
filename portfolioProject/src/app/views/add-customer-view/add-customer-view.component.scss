@@ -4,3 +4,23 @@
     align-items: center;
     height: 90vh;
 }
+
+.container {
+    display: flex;
+    margin-top: 10%;
+}
+
+.image-container {
+    flex: .5;
+    background-color: #e3d7f7;
+}
+
+.form-container {
+    flex: .5;
+    background-color: #c1a4f5;
+    
+}
+
+.background-image {
+    width: 90%;
+}

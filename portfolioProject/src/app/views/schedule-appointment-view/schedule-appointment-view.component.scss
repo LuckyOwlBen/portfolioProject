@@ -4,3 +4,16 @@
     align-items: center;
     height: 90vh;
 }
+
+.scheudle-appointment-container {
+    display: flex;
+    margin-top: 10%;
+}
+
+.date-selector {
+    flex: .5;
+}
+
+.time-selector {
+    flex: .5;
+}

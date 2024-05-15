@@ -1,4 +1,5 @@
 import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
+import { LocalStorageConfig, localStorageSync } from "ngrx-store-localstorage";
 
 interface AppState {
     customer: Customer,
@@ -28,6 +29,18 @@ AppState = {
         jwt: '',
     }
 };
+
+export function localStorageSyncConfig(): LocalStorageConfig {
+    return {
+        keys: ['customer', 'authentication'],
+        rehydrate: true,
+        checkStorageAvailability: true,
+    }
+}
+
+export function localStorageSyncReducer(reducer: any): any {
+    return localStorageSync(localStorageSyncConfig())(reducer);
+}
 
 export const AppStore = signalStore(
     { providedIn: 'root' },

@@ -9,7 +9,7 @@ import { SchedulerComponent } from '../../components/scheduler/scheduler.compone
 import { NgIf } from '@angular/common';
 import { ScheduleAppointmentRequest } from '../../http_models/requests/appointment-request';
 import { ScheduleAppointmentResponse } from '../../http_models/responses/appointment-response';
-import { AppStore } from '../../ngrx/app.store';
+import { AppStore } from '../../ngrx/signal.store';
 
 @Component({
   selector: 'app-schedule-appointment-view',

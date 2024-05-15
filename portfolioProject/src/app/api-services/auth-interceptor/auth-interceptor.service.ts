@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppStore } from '../../ngrx/app.store';
+import { AppStore } from '../../ngrx/signal.store';
 
   export function AuthInterceptor(req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> {
     const store = inject(AppStore);

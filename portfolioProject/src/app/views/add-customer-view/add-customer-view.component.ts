@@ -3,9 +3,11 @@ import { CustomerFormComponent } from '../../components/customer-form/customer-f
 import { AddCustomerRequest } from '../../http_models/requests/add-customer-request';
 import { CustomerService } from '../../api-services/api-service/api.service';
 import { AddCustomerResponse } from '../../http_models/responses/add-customer-response';
-import { AppStore, Authentication, Customer } from '../../ngrx/app.store';
+import { AppStore, Authentication, Customer } from '../../ngrx/signal.store';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { addCustomer } from '../../ngrx/actions/customer.actions';
 
 @Component({
   selector: 'app-add-customer-view',
@@ -23,7 +25,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddCustomerViewComponent {
 
-  readonly store = inject(AppStore);
+  readonly store = inject(Store);
   constructor(
     private customerService: CustomerService,
     private router: Router,
@@ -31,18 +33,7 @@ export class AddCustomerViewComponent {
   ) { };
 
   addCustomer(addCustomerRequest: AddCustomerRequest) {
-    this.customerService
-      .callApi(addCustomerRequest, null)
-      .pipe()
-      .subscribe({
-        next: (addCustomerResponse: AddCustomerResponse) => {
-          this.store.updateCustomer(this.generateCustomerObjectFromRequest(addCustomerRequest));
-          this.store.updateAuthentication(this.generateAuthenticationObjectFromResponse(addCustomerResponse));
-          this.router.navigate(['/appointments'], { relativeTo: this.route })
-        },
-        error: () => { this.router.navigate(['/error'], { relativeTo: this.route }) }
-      },
-      );
+    this.store.dispatch(addCustomer({ request: addCustomerRequest }));
   }
 
   generateCustomerObjectFromRequest(addCustomerRequest: AddCustomerRequest): Customer {

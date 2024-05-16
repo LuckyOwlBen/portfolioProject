@@ -11,6 +11,6 @@ export const authenticationReducer = createReducer(
     initialState,
     on(addCustomerSuccess,
         (state, { response }) => {
-            return {...state, authentication: response};
+            return {...state, jobId: response.jobId, jwt: response.token};
     })
 );

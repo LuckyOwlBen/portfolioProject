@@ -11,6 +11,11 @@ export const initialState: Customer = {
 export const customerReducer = createReducer(
     initialState,
     on(addCustomer, (state, { request }) => {
-        return {...state, customer: request};
+        return {
+            ...state,
+            firstName: request.firstName,
+            lastName: request.lastName,
+            emailId: request.emailId
+        };
     })
 );

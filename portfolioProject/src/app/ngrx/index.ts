@@ -8,7 +8,6 @@ import {
 import { customerReducer } from './reducers/customer.reducer';
 import { authenticationReducer } from './reducers/authentication.reducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
-import { isPlatformBrowser } from '@angular/common';
 
 export interface State {
   customer: Customer;

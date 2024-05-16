@@ -8,6 +8,8 @@ import { provideHttpClient, withFetch, withInterceptors, withNoXsrfProtection } 
 import { AuthInterceptor } from './api-services/auth-interceptor/auth-interceptor.service';
 import { provideStore } from '@ngrx/store';
 import { reducers, metaReducers } from './ngrx';
+import { CustomerEffects } from './ngrx/effects/customer.effects';
+import { provideEffects } from '@ngrx/effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withFetch(), withNoXsrfProtection(), withInterceptors([AuthInterceptor])),
-    provideStore(reducers, { metaReducers })
+    provideStore(reducers, { metaReducers }),
+    provideEffects([CustomerEffects])
   ]
 };

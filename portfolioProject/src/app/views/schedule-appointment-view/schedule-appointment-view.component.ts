@@ -9,7 +9,9 @@ import { SchedulerComponent } from '../../components/scheduler/scheduler.compone
 import { NgIf } from '@angular/common';
 import { ScheduleAppointmentRequest } from '../../http_models/requests/appointment-request';
 import { ScheduleAppointmentResponse } from '../../http_models/responses/appointment-response';
-import { AppStore } from '../../ngrx/signal.store';
+import { Store } from '@ngrx/store';
+import { authenticationSelector } from '../../ngrx';
+import { scheduleAppointment } from '../../ngrx/actions/appointment.actions';
 
 @Component({
   selector: 'app-schedule-appointment-view',
@@ -27,7 +29,7 @@ import { AppStore } from '../../ngrx/signal.store';
 })
 export class ScheduleAppointmentViewComponent implements OnInit {
 
-  readonly store = inject(AppStore);
+  readonly store = inject(Store);
   availabilityMap: Map<String, CalendarEntry> = new Map<String, CalendarEntry>();
   calendarEntry!: CalendarEntry | null;
   firstAvailableDate: Date = addDays(new Date(), 1);
@@ -58,7 +60,8 @@ export class ScheduleAppointmentViewComponent implements OnInit {
   }
 
   bookAppointment($event: ScheduleAppointmentRequest) {
-    $event.jobId = this.store.authentication.jobId().valueOf();
+    $event.jobId = authenticationSelector(this.store).jobId;
+    this.store.dispatch(scheduleAppointment({ request: $event }));
     this.appointmentService.callApi($event, null)
       .pipe()
       .subscribe({

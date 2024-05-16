@@ -27,6 +27,7 @@ export interface Authentication {
 
 export const selectCustomerState = 
   createFeatureSelector<Customer>('customer');
+
 export const customerSelector = createSelector(
   selectCustomerState,
   (state: Customer) => state

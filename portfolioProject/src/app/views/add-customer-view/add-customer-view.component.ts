@@ -3,11 +3,11 @@ import { CustomerFormComponent } from '../../components/customer-form/customer-f
 import { AddCustomerRequest } from '../../http_models/requests/add-customer-request';
 import { CustomerService } from '../../api-services/api-service/api.service';
 import { AddCustomerResponse } from '../../http_models/responses/add-customer-response';
-import { AppStore, Authentication, Customer } from '../../ngrx/signal.store';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { addCustomer } from '../../ngrx/actions/customer.actions';
+import { Authentication, Customer } from '../../ngrx';
 
 @Component({
   selector: 'app-add-customer-view',
@@ -26,11 +26,7 @@ import { addCustomer } from '../../ngrx/actions/customer.actions';
 export class AddCustomerViewComponent {
 
   readonly store = inject(Store);
-  constructor(
-    private customerService: CustomerService,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) { };
+  constructor() { };
 
   addCustomer(addCustomerRequest: AddCustomerRequest) {
     this.store.dispatch(addCustomer({ request: addCustomerRequest }));

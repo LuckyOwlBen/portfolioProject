@@ -53,4 +53,10 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
     checkStorageAvailability: true,
   })(reducer);
 }
+
+export function clearLocalStorage() {
+  localStorage.removeItem('customer');
+  localStorage.removeItem('authentication');
+}
+
 export const metaReducers: MetaReducer<State>[] = [localStorageSyncReducer];

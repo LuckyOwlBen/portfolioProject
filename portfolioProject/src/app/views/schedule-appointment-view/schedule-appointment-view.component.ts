@@ -10,7 +10,7 @@ import { NgIf } from '@angular/common';
 import { ScheduleAppointmentRequest } from '../../http_models/requests/appointment-request';
 import { ScheduleAppointmentResponse } from '../../http_models/responses/appointment-response';
 import { Store } from '@ngrx/store';
-import { authenticationSelector } from '../../ngrx';
+import { Authentication, authenticationSelector } from '../../ngrx';
 import { scheduleAppointment } from '../../ngrx/actions/appointment.actions';
 
 @Component({
@@ -60,7 +60,10 @@ export class ScheduleAppointmentViewComponent implements OnInit {
   }
 
   bookAppointment($event: ScheduleAppointmentRequest) {
-    $event.jobId = authenticationSelector(this.store).jobId;
+    this.store.select(authenticationSelector).pipe().subscribe((auth: Authentication) => {
+      $event.jobId = auth.jobId;
+    });
+    // $event.jobId = authenticationSelector(this.store).jobId;
     this.store.dispatch(scheduleAppointment({ request: $event }));
     this.appointmentService.callApi($event, null)
       .pipe()

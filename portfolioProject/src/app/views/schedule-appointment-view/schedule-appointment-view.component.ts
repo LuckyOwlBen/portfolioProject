@@ -63,7 +63,6 @@ export class ScheduleAppointmentViewComponent implements OnInit {
     this.store.select(authenticationSelector).pipe().subscribe((auth: Authentication) => {
       $event.jobId = auth.jobId;
     });
-    // $event.jobId = authenticationSelector(this.store).jobId;
     this.store.dispatch(scheduleAppointment({ request: $event }));
     this.appointmentService.callApi($event, null)
       .pipe()

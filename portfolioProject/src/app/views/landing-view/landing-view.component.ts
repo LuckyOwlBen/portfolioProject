@@ -17,7 +17,7 @@ import { clearLocalStorage } from '../../ngrx';
 export class LandingViewComponent implements OnInit {
   constructor(private router: Router){}
   ngOnInit(): void {
-    clearLocalStorage();
+    //clearLocalStorage();
   }
   submit() {
     this.router.navigateByUrl('/customerInfo');

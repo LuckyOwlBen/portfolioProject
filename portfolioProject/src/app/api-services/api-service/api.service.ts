@@ -7,8 +7,7 @@ import { AvailabilityRequest } from '../../http_models/requests/availability-req
 import { AvailabilityResponse } from '../../http_models/responses/availability-response';
 import { ScheduleAppointmentRequest } from '../../http_models/requests/appointment-request';
 import { ScheduleAppointmentResponse } from '../../http_models/responses/appointment-response';
-
-const apiUrl = 'http://localhost:5000';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ const apiUrl = 'http://localhost:5000';
 export abstract class CallApi <Request, Response, Headers extends { [key: string]: any; } | null> {
 
   abstract endpoint: string;
-
+  protected apiUrl = environment.apiUrl;
   constructor(protected http: HttpClient) {};
 
   callApi(apiRequest: Request, headers: Headers): Observable<Response> {
@@ -28,8 +27,8 @@ export abstract class CallApi <Request, Response, Headers extends { [key: string
       }
     }
     return apiRequest 
-      ? this.http.post<Response>(apiUrl + this.endpoint, apiRequest, {headers: httpHeaders})
-      : this.http.get<Response>(apiUrl + this.endpoint, {headers: httpHeaders});
+      ? this.http.post<Response>(this.apiUrl + this.endpoint, apiRequest, {headers: httpHeaders})
+      : this.http.get<Response>(this.apiUrl + this.endpoint, {headers: httpHeaders});
   }
 }
 

@@ -30,6 +30,7 @@
     "date-fns": "^3.3.1",
     "express": "^4.18.2",
     "ngrx-store-localstorage": "^17.0.0",
+    "portfolio-project": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

@@ -1,10 +1,11 @@
-FROM node:18-alpine as build
+FROM node:18-alpine AS build
 WORKDIR /app/src
 COPY package*.json ./
+COPY angular.json ./
+COPY tsconfig*.json ./
+COPY src ./src
+COPY server.ts ./
 RUN npm ci
-COPY . ./
-ARG apiUrl
-ENV apiUrl=${API_URL}
 RUN npm run build
 
 FROM node:18-alpine

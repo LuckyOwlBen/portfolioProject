@@ -24,6 +24,11 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
+  //healthcheck endpoint for aws to monitor the server
+  server.get('/healthCheck', (req,res) => {
+    res.status(200).send('Server is running');
+  })
+
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;

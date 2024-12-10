@@ -1,10 +1,10 @@
 FROM node:18-alpine AS build
 WORKDIR /app/src
-COPY portfolioProject/package*.json ./
-COPY portfolioProject/angular.json ./
-COPY portfolioProject/tsconfig*.json ./
-COPY portfolioProject/src ./src
-COPY portfolioProject/server.ts ./
+COPY package*.json ./
+COPY angular.json ./
+COPY tsconfig*.json ./
+COPY src ./src
+COPY server.ts ./
 RUN npm ci
 RUN npm run build
 
